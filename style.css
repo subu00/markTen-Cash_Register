@@ -42,9 +42,9 @@ padding: 10px;
     table, th, td {
         border: 1px solid black;
         border-collapse: collapse;
-        margin-top: 3.77rem;
+        margin-top: 3.22rem;
         margin: 0 auto;
-        /* font-size: 1.75rem; */
+        /* font-size: 1.24rem; */
     
         width: 100%;
         
@@ -75,9 +75,10 @@ padding: 10px;
     color: azure;
 }
 p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
-    margin-bottom: 0;
+    text-align: center;
+    margin-top: 12px;
 }
 
 label {
@@ -90,7 +91,7 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 40%;
     background: #EDEDED;
     border: 1px solid #C7C7C7;
     font-size: 1rem;
@@ -110,7 +111,7 @@ button {
     border: none;
     font-size: 1.125rem;
     cursor: pointer;
-    width: 50%;
+    width: 20%;
     margin: 0 auto;
     margin-bottom: 2.4rem;
    
@@ -118,3 +119,10 @@ button {
 
 
 
+.error-message {
+    text-align: center;
+      font-weight: bolder;
+      color: red;
+      font-size: 25px;
+      padding-bottom: 25px;
+}
