@@ -1,7 +1,5 @@
 const billAmount = document.querySelector(".bill-amount")
-console.log(billAmount.value)
 const cashGiven = document.querySelector('.cash-given')
-console.log(cashGiven.value)
 const checkButton = document.querySelector(".check-button")
 const message = document.querySelector(".error-message")
 const tableNotes = document.querySelectorAll(".table-notes")
@@ -18,12 +16,20 @@ const notes = [2000,500,100,20,10,5,1]
 function validateCheckAndBill() {
     message.style.display = "none";
     //  This ensures that the message will not stay when we click on the check button
-    if (billAmount.value < 0) {
+        if(billAmount.value ==="" || cashGiven.value ==="") {
+            message.textContent = "Invalid Bill Amount"
+            message.style.display ="block"
+        } else if(cashGiven.value === billAmount.value) {
+            const amountToReturn = cashGiven.value - billAmount.value
+            calculateChange(amountToReturn)
+        }
+    
+    else if (billAmount.value < 0) {
         message.innerText ="The Bill amount should be greater than 0"
         message.style.display ="block"; 
 
     } else if(cashGiven.value <= billAmount.value) {
-        message.innerText ="Please Provide more cash. Insufficent Cash"
+        message.innerText ="Please Provide more cash. Insufficent Cash.  Else Wash the Dishes 🍽️🍽️ 😭😭  "
         message.style.display ="block";
 
     } else if(cashGiven.value >= billAmount.value) {
