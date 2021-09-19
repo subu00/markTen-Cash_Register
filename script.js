@@ -24,8 +24,8 @@ function validateCheckAndBill() {
             calculateChange(amountToReturn)
         }
     
-    else if (billAmount.value < 0) {
-        message.innerText ="The Bill amount should be greater than 0"
+    else if (billAmount.value <= 0 || cashGiven.value <= 0) {
+        message.innerText ="Please enter a positive value"
         message.style.display ="block"; 
 
     } else if(cashGiven.value <= billAmount.value) {
