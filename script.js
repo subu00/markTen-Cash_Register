@@ -19,26 +19,25 @@ function validateCheckAndBill() {
         if(billAmount.value ==="" || cashGiven.value ==="") {
             message.textContent = "Invalid Bill Amount"
             message.style.display ="block"
-        } else if(cashGiven.value === billAmount.value) {
-            const amountToReturn = cashGiven.value - billAmount.value
-            calculateChange(amountToReturn)
-        }
+        } 
     
-    else if (billAmount.value <= 0 || cashGiven.value <= 0 || (billAmount.value <= 0 && cashGiven.value <= 0) ) {
+    else if (billAmount.value <= 0 || cashGiven.value <= 0 || (billAmount.value < 0 && cashGiven.value <= 0) || (cashGiven.value === billAmount.value) ) {
         message.innerText ="Please enter a positive value"
         message.style.display ="block"; 
 
-    } else if(cashGiven.value <= billAmount.value) {
+    } else if(Number(cashGiven.value) < Number(billAmount.value)) {
         message.innerText ="Please Provide more cash. Insufficent Cash.  Else Wash the Dishes 🍽️🍽️ 😭😭  "
         message.style.display ="block";
 
-    } else if(cashGiven.value >= billAmount.value) {
+    } else if(cashGiven.value >= billAmount.value || ((billAmount.value >= cashGiven.value) )) {
         // Main Logic
         //  1) Calculate the difference
         const amountToReturn = cashGiven.value - billAmount.value
         //2 ) Return minimum number for notes .. for that we will divide the 
         // amount to return with every notes(2000,500,100,20,5,1,10)
         calculateChange(amountToReturn)
+        message.innerText =`Amount to be returned: ${amountToReturn}`
+        message.style.display ="block"; 
     }
 }
 
@@ -52,11 +51,5 @@ function calculateChange(amountToReturn) {
  tableNotes[i].innerText = numberofNotes; // update the notes in table
 }
 }
-
-
-
-
-
-
 
 checkButton.addEventListener('click', validateCheckAndBill)
