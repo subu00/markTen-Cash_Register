@@ -14,6 +14,7 @@ const notes = [2000,500,100,20,10,5,1]
 // Validating the Bill and check amount 
 
 function validateCheckAndBill() {
+   
     message.style.display = "none";
     //  This ensures that the message will not stay when we click on the check button
         if(billAmount.value ==="" || cashGiven.value ==="") {
@@ -21,11 +22,16 @@ function validateCheckAndBill() {
             message.style.display ="block"
         } 
     
-    else if (billAmount.value <= 0 || cashGiven.value <= 0 || (billAmount.value < 0 && cashGiven.value <= 0) || (cashGiven.value === billAmount.value) ) {
+    else if (billAmount.value <= 0 || cashGiven.value <= 0 || (billAmount.value < 0 && cashGiven.value <= 0)) {
         message.innerText ="Please enter a positive value"
         message.style.display ="block"; 
 
-    } else if(Number(cashGiven.value) < Number(billAmount.value)) {
+    } else if((cashGiven.value === billAmount.value)) {
+        message.innerText ="No cash to Return"
+        message.style.display ="block"; 
+    }
+    
+    else if(Number(cashGiven.value) < Number(billAmount.value)) {
         message.innerText ="Please Provide more cash. Insufficent Cash.  Else Wash the Dishes 🍽️🍽️ 😭😭  "
         message.style.display ="block";
 
